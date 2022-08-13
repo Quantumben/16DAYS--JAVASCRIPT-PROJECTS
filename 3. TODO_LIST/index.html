@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoList</title>
+
+    <style>
+        body{
+            background-color: rgb(26, 26, 114);
+            color: white;
+        }
+
+        button{
+            font-size: 10px;
+            border-color: transparent;
+            display: block;
+            padding: 5px 40px;
+        }
+        
+        input {
+            font-size: 50px;
+            border-color: transparent;
+            display: block;
+            padding: 5px 40px;
+        }
+        
+        form{
+
+            height: 98vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="">
+
+        <input type="text" id="input" placeholder="Enter A Task">
+
+        <br>
+        <button type="submit" class="submit"> Submit </button>
+
+        <ul class="list">
+            
+        </ul>
+    </form>
+
+    <script>
+        const form = document.querySelector('form');
+        const input = document.querySelector('input');
+        const list = document.querySelector('ul');
+
+        form.addEventListener('submit', function(e){
+            //preventDefault() stops the page from reloading
+            e.preventDefault();
+            
+            toDo();
+            input.value = ""
+        });
+        function toDo(){
+            if(input.value === ''){
+                alert('the value is empty')
+        }else{
+            const value = input.value;
+
+            //creating li element ech time we submit
+            const newList = document.createElement('li');
+            //add the value of the input to the li
+            newList.textContent = value;
+            //adding the delete button
+            const deleteBtn = document.createElement('button');
+
+            //changing the content of the button
+            deleteBtn.textContent = 'delete';
+
+            //adding the li inside the ul
+            list.append(newList);
+
+            //adding the delete button
+            newList.append(' ', deleteBtn);
+
+        }
+    }
+
+    //for delete
+    list.addEventListener('click', function(e){
+        //target means the one we are Clicking
+        //nodeName means the element name
+        if(e.target.nodeName === 'BUTTON'){
+            e.target.closest('LI').remove();
+        }
+    })
+    </script>
+</body>
+</html>
