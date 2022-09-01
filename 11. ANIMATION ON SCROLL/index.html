@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="title">
+        <h1>
+            Animation on scroll
+        </h1>
+    </div>
+
+    <!-- Animation container -->
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum nobis, animi atque nam cumque id inventore molestiae hic laboriosam neque nostrum nihil aperiam maiores, minus quisquam eius laudantium dicta doloribus!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae consequuntur omnis cupiditate neque cumque veniam in quod ipsam. Dolorum, aut consectetur! Nemo reprehenderit magnam accusamus distinctio? Sed dolor explicabo suscipit.
+
+            </div>
+
+            <div class="col-6">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum nobis, animi atque nam cumque id inventore molestiae hic laboriosam neque nostrum nihil aperiam maiores, minus quisquam eius laudantium dicta doloribus!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae consequuntur omnis cupiditate neque cumque veniam in quod ipsam. Dolorum, aut consectetur! Nemo reprehenderit magnam accusamus distinctio? Sed dolor explicabo suscipit.
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('scroll', () =>{
+            let row = document.querySelector('.row');
+            let rowPostion = row.getBoundingClientRect().top;
+            let windowPostion = window.innerHeight;
+
+            if(rowPostion < windowPostion){
+                row.classList.add('active');
+            }else{
+                row.classList.remove('active');
+            }
+        })
+    </script>
+</body>
+</html>
